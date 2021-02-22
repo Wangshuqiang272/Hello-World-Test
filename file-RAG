@@ -1,0 +1,12 @@
+#include <stdio.h>
+void main()
+{
+  char a[20];
+  while(getchar(!=NULL)
+  scanf("%d",&a[i]);
+  for(int i = 0;i < 20;i++)
+  {
+     printf("%d ",a[i]);
+     printf("\r\n");
+  }
+}
