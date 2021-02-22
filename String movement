@@ -1,0 +1,100 @@
+#include "stdio.h"
+void judge(char *a,char *b,int n)
+{
+    int flag = 0,t=0,q=0,i=0;
+    char *pa,*pb,tm;
+    for(i=0; i<n; i++)
+    {
+        pa = a;
+        pb = b;
+        while(*pb!=32)
+        {
+            if(*pb!=*pa)
+            {
+                pb++;
+            }
+            else
+            {
+                flag = 1;
+               // t = 1;
+                break;
+            }
+        }
+        if(flag)
+        {
+            while(*pa!=32)
+            {
+                if(*pb==32)
+                {
+                    t = 1;
+                    break;
+                }
+                else if(*pa==*pb)
+                {
+                    pa++;
+                    pb++;
+                }
+                else
+                {
+                    t = 1;
+                    break;
+                }
+            }
+        }
+        else
+            t=1;
+        if(t==0)
+        {
+            q = 0;
+            printf("true");
+            break;
+        }
+        else
+        {
+            q = 1;
+            pa = b;
+            pb = b;
+            pb++;
+            tm = *b;
+            while(*pb!=32)
+            {
+                *pa = *pb;
+                pa++;
+                pb++;
+            }
+            *pa = tm;
+
+        }
+        flag = 0;
+        t = 0;
+    }
+    if(q==1)
+        printf("false");
+
+}
+int main()
+{
+    int i=0,ca,cb;
+    char a[35],b[35];
+    while((a[i]=getchar())!=32)
+    {
+        i++;
+    }
+    ca = i;
+    i = 0;
+    while((b[i]=getchar())!='\n')
+     {
+       i++;
+     }
+       b[i] = 32;
+       cb = i;
+       if(ca>=cb)
+    {
+    judge(b,a,ca);
+    }
+    else
+    {
+    judge(a,b,cb);
+    }
+
+}
